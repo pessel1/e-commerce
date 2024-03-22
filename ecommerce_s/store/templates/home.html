@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+{% block banner %}
+<section class="featured-products">
+    <div id="slideshow" class="slideshow">
+       {% for product in featured_products %}
+           <div class="slide" style="background-image: url('{{ product.image.url }}');">
+              <h4>{{ product.name }}</h4>
+              <p>${{ product.price }}</p>
+           </div> 
+       {% endfor %} 
+   </div>     
+</section>
+{% endblock %}
